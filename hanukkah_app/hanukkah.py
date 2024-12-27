@@ -14,42 +14,9 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 st.set_page_config(page_title="Hanukkah Menorah", page_icon="🕎", layout="centered")
 st.title("🕎 Happy Hanukkah! 🕯️")
 
-# Initialize session state for candles and quiz
-if 'candles' not in st.session_state:
-    st.session_state.candles = 3  # Default 3 candles lit
-if 'quiz_score' not in st.session_state:
-    st.session_state.quiz_score = 0
-if 'question_index' not in st.session_state:
-    st.session_state.question_index = 0
-if 'quiz_complete' not in st.session_state:
-    st.session_state.quiz_complete = False
-
-# Menorah drawing function
-def draw_menorah(candles_lit):
-    menorah = Image.new("RGBA", (400, 400), (255, 255, 255, 0))
-    draw = ImageDraw.Draw(menorah)
-
-    draw.rectangle([120, 330, 280, 350], fill="brown")  # Base
-    for i in range(9):
-        x = 50 + i * 40
-        draw.rectangle([x + 10, 250, x + 30, 330], fill="gold")
-    draw.rectangle([190, 220, 210, 330], fill="gold")  # Shamash (center)
-
-    positions = [(60 + i * 40, 250) for i in range(9)]
-    positions[4] = (200, 220)  # Shamash is higher
-
-    for i, pos in enumerate(positions):
-        draw.rectangle([pos[0], pos[1], pos[0] + 20, 330], fill="gray")
-        if i < candles_lit or i == 4:
-            draw.ellipse([pos[0] + 5, pos[1] - 30, pos[0] + 15, pos[1] - 5], fill="orange")
-    return menorah
-
-# Display Menorah
-st.image(draw_menorah(st.session_state.candles), use_container_width=True)
-
-if st.button("Light a Candle"):
-    if st.session_state.candles < 8:
-        st.session_state.candles += 1
+# Display Beautiful Menorah Image
+menorah_image = Image.open("C:\Projects\Pictures\menorah.jpg")  # Replace with path to your menorah image
+st.image(menorah_image, caption="Beautiful Hanukkah Menorah", use_container_width=True)
 
 # Blessings
 st.subheader("🕯️ Hanukkah Blessings")
