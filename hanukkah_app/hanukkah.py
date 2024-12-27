@@ -15,7 +15,7 @@ st.set_page_config(page_title="Hanukkah Menorah", page_icon="🕎", layout="cent
 st.title("🕎 Happy Hanukkah! 🕯️")
 
 # Display Beautiful Menorah Image
-menorah_image = Image.open("C:\Projects\Pictures\menorah.jpg")  # Replace with path to your menorah image
+menorah_image = Image.open("Pictures/menorah.jpg") # Replace with path to your menorah image
 st.image(menorah_image, caption="Beautiful Hanukkah Menorah", use_container_width=True)
 
 # Blessings
