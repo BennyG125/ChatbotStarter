@@ -1,1 +1,6 @@
-.env 
+# Ignore secrets
+.env
+
+# Ignore Python virtual environment directories
+.venv/
+myenv/
